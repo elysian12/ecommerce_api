@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { updateUser } = require('../controllers/user')
-const { verifyToken, verifyTokenAndAdmin } = require('../middlewares/auth')
+const { verifyToken, verifyTokenAndAdmin, verifyTokenAndAuthorization } = require('../middlewares/auth')
 
 
-router.post('/:id', verifyTokenAndAdmin, updateUser)
+router.post('/:id', verifyTokenAndAuthorization, updateUser)
 
 
 module.exports = router;

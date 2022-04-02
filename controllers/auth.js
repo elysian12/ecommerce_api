@@ -80,7 +80,8 @@ const login = async (req, res) => {
         });
         if (!user) {
             return res.status(404).json({
-                "status": "Failed"
+                status: "Failed",
+                message: "Not Found"
             });
         }
 
