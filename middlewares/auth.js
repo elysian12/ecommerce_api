@@ -15,6 +15,7 @@ const verifyToken = (req, res, next) => {
                 });
                 return;
             } else {
+
                 req.user = user;
                 next();
             }
@@ -29,7 +30,7 @@ const verifyToken = (req, res, next) => {
 
 const verifyTokenAndAdmin = (req, res, next) => {
     verifyToken(req, res, () => {
-        if (req.user.id === req.params.id) {
+        if (req.user.isAdmin) {
             next();
         } else {
             res.status(403).json({

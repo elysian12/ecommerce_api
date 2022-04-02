@@ -59,8 +59,8 @@ const login = async (req, res) => {
     if (!req.body.password) {
         res.setHeader('Content-Type', 'application/json');
         res.status(400).json({
-            "status": "Failed",
-            "message": "Password Field is required"
+            status: "Failed",
+            message: "Password Field is required"
         });
         return;
 
@@ -68,8 +68,8 @@ const login = async (req, res) => {
     if (!req.body.username) {
         res.setHeader('Content-Type', 'application/json');
         res.status(400).json({
-            "status": "Failed",
-            "message": "username Field is required"
+            status: "Failed",
+            message: "username Field is required"
         });
         return;
 
@@ -99,13 +99,13 @@ const login = async (req, res) => {
             );
 
             res.status(200).json({
-                "status": "Success",
+                status: "success",
                 ...others,
-                'token': accesssToken
+                token: accesssToken
             });
         }
         else {
-            res.status(401).json({ "status": "Failed", "message": "wrong creds" });
+            res.status(401).json({ status: "Failed", message: "wrong creds" });
         }
 
 

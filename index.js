@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI).then(
 
 app.use(express.json());
 app.use('/api/v1', authRoute);
-app.use('/api/v1', userRoute);
+app.use('/api/v1/users', userRoute);
 
 app.listen(3000, () => {
     console.log('listening on port 5000');

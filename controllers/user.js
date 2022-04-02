@@ -22,9 +22,26 @@ const updateUser = async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
+}
+const getUser = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        const { password, ...others } = user._doc;
+        res.status(200).json(others);
 
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
+const getAllUser = async (req, res) => {
+    try {
+        const users = await User.find();
+        res.status(200).json(users);
 
+    } catch (error) {
+        res.status(500).json(error);
 
+    }
 }
 
-module.exports = { updateUser }
+module.exports = { updateUser, getUser, getAllUser }
