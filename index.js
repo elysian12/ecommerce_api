@@ -18,6 +18,9 @@ mongoose.connect(process.env.MONGO_URI).then(
 );
 
 app.use(express.json());
+app.use('/', (req, res) => {
+    res.sendFile('views/index.html', { root: __dirname });
+});
 app.use('/api/v1', authRoute);
 app.use('/api/v1/users', userRoute);
 
