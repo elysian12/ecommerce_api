@@ -22,6 +22,9 @@ app.use(express.json());
 app.use('/api/v1', authRoute);
 app.use('/api/v1/users', userRoute);
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`listening on port ${process.env.PORT}`);
+app.listen(process.env.PORT || 3000, (error) => {
+    if (error) {
+        return console.error(err);
+    }
+    return console.log(`listening on port ${process.env.PORT || 3000}`);
 });
